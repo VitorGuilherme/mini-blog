@@ -1,4 +1,4 @@
-import { db } from "../firebase/config";
+import { app, db } from "../firebase/config";
 
 import {
   getAuth,
@@ -65,11 +65,47 @@ export const useAuthentication = () => {
     }
   };
 
-  // SignOut
+  // Login - sign in
+  const login = async (data) => {
+
+    checkIfIsCancelled();
+
+    setLoading(true);
+    setError(false);
+
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      setLoading(false);
+    } catch (error) {
+    console.log(error.message);
+
+      let systemErrorMessage;
+
+      if (error.message.includes("invalid-credential")) {
+        systemErrorMessage = "Usuário não encontrado";
+      } else if (error.message.includes("invalid-password")) {
+        systemErrorMessage = "Senha incorreta!";
+      } else {
+        systemErrorMessage = "Ocorreu um erro, por favor tente novamente mais tarde.";
+      }
+      setError(systemErrorMessage);
+      setLoading(false);
+    }
+  };
+
+  // SignOut - Implement a logout confirmation pop up
   const logout = () => {
     checkIfIsCancelled();
 
-    signOut(auth);
+    if(window.confirm("Você realmente deseja sair ?")){
+      signOut(auth)
+      .then(() => {
+        alert("Logout realizado com sucesso!!")
+      })
+      .catch((error) => {
+        setError("Erro ao realizar logout. Por favor tente novamente mais tarde")
+      })
+    };
   };
 
   // Used to avoid memmory leak
@@ -82,6 +118,7 @@ export const useAuthentication = () => {
     createUser,
     error,
     loading,
-    logout
+    logout,
+    login
   };
 };

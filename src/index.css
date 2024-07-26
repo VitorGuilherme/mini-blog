@@ -24,7 +24,7 @@ nav button {
 
 a:hover,
 nav button:hover {
-  color: #bbb;
+  color: rgb(158, 92, 158);
 }
 
 /* form styles */

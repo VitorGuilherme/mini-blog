@@ -9,7 +9,7 @@ const Login = () => {
   const [error, setError] = useState("");
 
   // destructuring of hook useAuthentication
-  const { createUser, error: authError, loading } = useAuthentication();
+  const { login, error: authError, loading } = useAuthentication();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const Login = () => {
       password,
     };
 
-    const res = await createUser(user);
+    const res = await login(user);
 
     console.log(res);
   };
@@ -41,7 +41,6 @@ const Login = () => {
           <input
             type="email"
             name="email"
-            required
             placeholder="Digite seu email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -52,7 +51,6 @@ const Login = () => {
           <input
             type="password"
             name="password"
-            required
             placeholder="Senha"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
