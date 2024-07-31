@@ -76,7 +76,8 @@ textarea {
   background-color: transparent;
   border-radius: 0;
   color: #000;
-  border: 1px solid #000;
+  border: 1px solid #eee;
+  border-radius: 5px;
   padding: 7px 30px;
 }
 
@@ -86,7 +87,8 @@ textarea {
 }
 
 .btn.btn-outline:hover {
-  background-color: #000;
+  
+  background-color: rgb(158, 92, 158);
 }
 
 .btn.btn-danger:hover {

@@ -2,32 +2,69 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import styles from "./Dashboard.css"
+import styles from "./Dashboard.module.css";
 
 // hooks
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
+import { useDeleteDocument } from "../../hooks/useDeleteDocument";
 
 const Dashboard = () => {
   const { user } = useAuthValue();
   const uid = user.uid;
 
   // posts do usuário
-  const posts = []
+  const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
+
+  // delete post
+  const { deleteDocument } = useDeleteDocument("posts");
+
+  if(loading) {
+    return <p>Carregando...</p>
+  }
 
   return (
-    <div>
+    <div className={styles.dashboard}>
       <h2>Dashboard</h2>
       <p>Gerencie os seus posts</p>
       {posts && posts.length === 0 ? (
         <div className={styles.noposts}>
           <p>Não foram encontrados posts</p>
-          <Link to="/dashboard/create" className="btn">Criar primeiro post</Link>
+          <Link to="/dashboard/create" className="btn">
+            Criar primeiro post
+          </Link>
         </div>
       ) : (
-        <div>
-          <p>Tem posts!</p>
-        </div>
+        <>
+          <div className={styles.post_header}>
+            <span>Título</span>
+            <span>Ações</span>
+          </div>
+
+          {posts &&
+            posts.map((post) => (
+              <div key={post.id} className={styles.post_row}>
+                <p key={post.title}>{post.title}</p>
+                <div>
+                  <Link to={`/posts/${post.id}`} className="btn btn-outline">
+                    Ver
+                  </Link>
+                  <Link
+                    to={`/posts/edit/${post.id}`}
+                    className="btn btn-outline"
+                  >
+                    Editar
+                  </Link>
+                  <button
+                    onClick={() => deleteDocument(post.id)}
+                    className="btn btn-outline btn-danger"
+                  >
+                    Excluir
+                  </button>
+                </div>
+              </div>
+            ))}
+        </>
       )}
     </div>
   );
