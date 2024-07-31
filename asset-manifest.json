@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/VitorGuilherme/mini-blog.git/static/css/main.658b9f19.css",
+    "main.js": "/VitorGuilherme/mini-blog.git/static/js/main.67b474be.js",
+    "static/js/453.75fbf791.chunk.js": "/VitorGuilherme/mini-blog.git/static/js/453.75fbf791.chunk.js",
+    "static/media/logo.svg": "/VitorGuilherme/mini-blog.git/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/VitorGuilherme/mini-blog.git/index.html",
+    "main.658b9f19.css.map": "/VitorGuilherme/mini-blog.git/static/css/main.658b9f19.css.map",
+    "main.67b474be.js.map": "/VitorGuilherme/mini-blog.git/static/js/main.67b474be.js.map",
+    "453.75fbf791.chunk.js.map": "/VitorGuilherme/mini-blog.git/static/js/453.75fbf791.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.658b9f19.css",
+    "static/js/main.67b474be.js"
+  ]
+}
