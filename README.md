@@ -1,3 +1,42 @@
+![image](https://github.com/user-attachments/assets/e9a4fe7c-cb72-486a-afc1-b20679668e5b)
+
+## Description
+
+This project is a mini blog for posting photos, developed using React. It allows users to upload photos, view existing posts, and interact with other users through comments and likes.
+
+## Technologies Used
+
+- React
+- JavaScript
+- HTML
+- CSS
+- Firebase (for authentication and image storage)
+
+## Features
+
+- User authentication
+- Photo uploads
+- Viewing other users' posts
+
+### Screenshots
+
+1. **Home Page**
+
+   ![image](https://github.com/user-attachments/assets/797e2b55-a564-4203-a2f8-1505b2e4eada)
+
+
+2. **Upload Page**
+
+   ![image](https://github.com/user-attachments/assets/b4ce81ac-fbb7-492a-8bc9-a3487047e7bb)
+
+
+3. **Dashboard**
+
+  ![image](https://github.com/user-attachments/assets/e73699cf-d846-4a96-842d-4c7f08a77e60)
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
